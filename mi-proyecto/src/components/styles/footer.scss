@@ -1,0 +1,14 @@
+@use 'variables' as *;
+
+// Footer styles
+.footer {
+  background-color: $primary-color;
+  color: white;
+  padding: $spacing-md 0;
+  text-align: center;
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  z-index: 100;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+} 

@@ -116,19 +116,26 @@ const Products = () => {
       )}
 
       <div className="product-list">
-        {filteredProducts.map(product => (
-          <div key={product.id} className="product-item">
-            <img src={product.image} alt={product.name} className="product-image" />
-            <div className="product-info">
-              <h3>{product.name}</h3>
-              <div className="price-info">
-                <span className="current-price">${product.price}</span>
-                <span className="original-price">${product.originalPrice}</span>
-                <span className="discount">-{product.discount}%</span>
+        {filteredProducts.length > 0 ? (
+          filteredProducts.map(product => (
+            <div key={product.id} className="product-item">
+              <img src={product.image} alt={product.name} className="product-image" />
+              <div className="product-info">
+                <h3>{product.name}</h3>
+                <div className="price-info">
+                  <span className="current-price">${product.price}</span>
+                  <span className="original-price">${product.originalPrice}</span>
+                  <span className="discount">-{product.discount}%</span>
+                </div>
               </div>
             </div>
+          ))
+        ) : (
+          <div className="no-products-message">
+            <p>No se encontraron productos que coincidan con tu búsqueda.</p>
+            <p>Intenta con otros criterios de búsqueda.</p>
           </div>
-        ))}
+        )}
       </div>
     </div>
   );
