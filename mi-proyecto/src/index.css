@@ -1,0 +1,4 @@
+/* Base reset only, main styling is in components/styles/main.scss */
+#root {
+  min-height: 100vh;
+}
