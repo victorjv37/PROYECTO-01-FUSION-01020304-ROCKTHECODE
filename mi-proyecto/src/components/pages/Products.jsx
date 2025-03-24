@@ -133,7 +133,7 @@ const Products = () => {
         ) : (
           <div className="no-products-message">
             <p>No se encontraron productos que coincidan con tu búsqueda.</p>
-            <p>Intenta con otros criterios de búsqueda.</p>
+            <p>Intenta con otros criterios de búsqueda...</p>
           </div>
         )}
       </div>
