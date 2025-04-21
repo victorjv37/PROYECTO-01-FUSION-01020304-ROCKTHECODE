@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { products } from '../../services/productService';
 
 const Products = () => {
@@ -118,17 +119,19 @@ const Products = () => {
       <div className="product-list">
         {filteredProducts.length > 0 ? (
           filteredProducts.map(product => (
-            <div key={product.id} className="product-item">
-              <img src={product.image} alt={product.name} className="product-image" />
-              <div className="product-info">
-                <h3>{product.name}</h3>
-                <div className="price-info">
-                  <span className="current-price">${product.price}</span>
-                  <span className="original-price">${product.originalPrice}</span>
-                  <span className="discount">-{product.discount}%</span>
+            <Link to={`/products/${product.id}`} key={product.id} className="product-item-link">
+              <div className="product-item">
+                <img src={product.image} alt={product.name} className="product-image" />
+                <div className="product-info">
+                  <h3>{product.name}</h3>
+                  <div className="price-info">
+                    <span className="current-price">${product.price}</span>
+                    <span className="original-price">${product.originalPrice}</span>
+                    <span className="discount">-{product.discount}%</span>
+                  </div>
                 </div>
               </div>
-            </div>
+            </Link>
           ))
         ) : (
           <div className="no-products-message">

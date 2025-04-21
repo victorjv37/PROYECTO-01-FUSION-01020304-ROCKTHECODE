@@ -134,4 +134,10 @@ export const products = [
     discount: 10,
     description: 'La chaqueta Nike Windrunner combina un diseño icónico con tecnología moderna. Fabricada con material resistente al agua y al viento, cuenta con capucha ajustable y bolsillos con cremallera. Perfecta para entrenamientos al aire libre en condiciones variables.'
   }
-]; 
+];
+
+export const getProductById = (id) => {
+  // Convert id to number as params are strings
+  const productId = parseInt(id, 10);
+  return products.find(product => product.id === productId);
+}; 

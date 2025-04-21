@@ -1,0 +1,135 @@
+@use 'variables' as *;
+
+.product-detail-container {
+  padding: $spacing-lg $spacing-md;
+  background-color: white;
+  border-radius: $border-radius-lg;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  margin-top: $spacing-lg;
+
+  &.not-found {
+    text-align: center;
+    padding: $spacing-xl;
+
+    h2 {
+      color: $secondary-color;
+      margin-bottom: $spacing-md;
+    }
+  }
+
+  .back-button {
+    display: inline-block;
+    margin-bottom: $spacing-lg;
+    color: $primary-color;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $secondary-color;
+    }
+  }
+
+  .product-detail-content {
+    display: flex;
+    gap: $spacing-lg;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+
+    .product-detail-image {
+      flex: 1;
+      max-width: 400px; // Limit image width
+      
+      img {
+        width: 100%;
+        height: auto;
+        max-height: 400px; // Limit image height
+        object-fit: contain;
+        border-radius: $border-radius;
+        border: 1px solid #eee;
+      }
+    }
+
+    .product-detail-info {
+      flex: 2;
+
+      h1 {
+        font-size: $font-size-xxl;
+        color: $primary-color;
+        margin-bottom: $spacing-md;
+      }
+
+      .product-description {
+        font-size: $font-size-base;
+        color: $text-muted;
+        line-height: 1.7;
+        margin-bottom: $spacing-lg;
+      }
+
+      .price-info-detail {
+        display: flex;
+        align-items: baseline; // Align text baseline
+        gap: $spacing-sm;
+        margin-bottom: $spacing-lg;
+        border-top: 1px solid #eee;
+        padding-top: $spacing-md;
+
+        .current-price-detail {
+          font-size: $font-size-xl;
+          font-weight: 700;
+          color: $secondary-color;
+        }
+
+        .original-price-detail {
+          font-size: $font-size-base;
+          text-decoration: line-through;
+          color: $text-muted;
+        }
+
+        .discount-detail {
+          background-color: $accent-color;
+          color: $text-color;
+          padding: 4px 8px;
+          border-radius: $border-radius-sm;
+          font-size: $font-size-sm;
+          font-weight: 600;
+          margin-left: $spacing-sm;
+        }
+      }
+
+      .add-to-cart-button {
+        background-color: $secondary-color;
+        color: white;
+        border: none;
+        padding: $spacing-sm $spacing-lg;
+        border-radius: $border-radius;
+        cursor: pointer;
+        font-size: $font-size-lg;
+        font-weight: 500;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background-color: darken($secondary-color, 10%);
+          transform: translateY(-2px);
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+      }
+    }
+  }
+}
+
+.product-item-link {
+  text-decoration: none; // Remove default link underline
+  color: inherit; // Inherit text color
+
+  &:hover,
+  &:focus {
+    .product-item {
+      // Keep hover effect from original products.scss
+      transform: translateY(-5px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    }
+  }
+} 
